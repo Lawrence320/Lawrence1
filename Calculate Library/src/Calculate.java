@@ -55,6 +55,15 @@ public class Calculate {
 		answer = (number2 * number2 - 4 * number1 * number3);
 		return answer;
 	}
+	//A call to convert a mixed number into an improper fraction
+	//it accepts three integers and returns a string
+	public static String toImproperFrac(int number1, int number2, int number3) {
+		return (number3 * number1 + number2) + "/" + number3;
+	}
 	
-	//public static int toImproperFrac(String)
+	public static String toMixedNum(int number1, int number2) {
+		int whole = number1 / number2;
+		int numerator = number1 % number2;
+		return whole + "_" + numerator + "/" + number2;
+	}
 }

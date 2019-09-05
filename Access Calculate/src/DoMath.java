@@ -2,7 +2,7 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		System.out.println(Calculate.square(2));
+		System.out.println(Calculate.toMixedNum(7, 2));
 	}
 
 }
