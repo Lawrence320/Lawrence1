@@ -136,7 +136,7 @@ public class Calculate {
 	}
 	//a call to round a double correctly to 2 decimal places
 	//it accepts a double and returns a double
-	public static double roundTo2DecimalPlaces(double num1) {
+	public static double round2(double num1) {
 		int rounded = (int) (num1 / absValue(num1));
 		int result = (int) absValue((int)(num1*1000));
 		if(result % 10 >= 5) {
@@ -170,7 +170,7 @@ public class Calculate {
 	}
 	//a call to determine whether or not an integer is prime
 	//it accepts an integer and returns a boolean
-	public static boolean isItAPrimeNumber(int num) {
+	public static boolean isPrime(int num) {
 		for(int i = 2; i < num; i++) {
 			if(isDivisibleBy(num, i)) {
 				return false;
@@ -180,7 +180,7 @@ public class Calculate {
 	}
 	//a call to find the greatest common factor of two integers
 	//it accepts two positive integers and returns an integer
-	public static int greatestCommonFactor(int num1, int num2) {
+	public static int gcf(int num1, int num2) {
 		int output = 1;
 		for(int i = 1; i <= num1; i+=1) {
 			if(isDivisibleBy(num1, i) && isDivisibleBy(num2, i)) {
@@ -193,7 +193,7 @@ public class Calculate {
 	 * rounded to two decimals
 	 */
 	//it accepts a double and returns a double
-	public static double squareRoot(double num) {
+	public static double sqrt(double num) {
 		if(num < 0) {
 			throw new IllegalArgumentException("Can't square root a negative number");
 		}
@@ -201,21 +201,21 @@ public class Calculate {
 		while(!(absValue(num - result * result) < 0.005)) {
 			result = 0.5 * (num / result + result);
 		}
-		return roundTo2DecimalPlaces(result);
+		return round2(result);
 	}
 	/*a call to use the coefficients of a quadratic equation in standard form and uses
 	 * the quadratic formula to approximate the real roots, if any.
 	 */
 	//it accepts three integers and returns a string
-	public static String theQuadraticFormula(int a, int b, int c) {
+	public static String quadForm(int a, int b, int c) {
 		double discriminant = discriminant(a, b, c);
 		if(discriminant < 0) {
 			return "no real roots";
 		}else if(discriminant == 0) {
-			return roundTo2DecimalPlaces(-b/2*a) + "";
+			return round2(-b/2*a) + "";
 		}else {
-			double root1 = roundTo2DecimalPlaces((-b + squareRoot(discriminant)) / (2.0 * a));
-			double root2 = roundTo2DecimalPlaces((-b - squareRoot(discriminant)) / (2.0 * a));
+			double root1 = round2((-b + sqrt(discriminant)) / (2.0 * a));
+			double root2 = round2((-b - sqrt(discriminant)) / (2.0 * a));
 			return min(root1, root2) + " and " + max(root1, root2);
 		} 
 	}

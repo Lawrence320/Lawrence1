@@ -1,28 +1,66 @@
 //Lawrence Luong
 //4th period
-//October 9th, 2019
+//10/22/19
+//A method that prints an hourglass
 
 import java.util.*;
+
 public class Hourglass {
-	static Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
-		System.out.println("How many lines does your hourglass have?");
-		int size = scanner.nextInt();
-		System.out.print("|");
-		for(int quote = 1; quote <= size; quote++) {
-			System.out.print("\"");
-		}
-		System.out.println("|");
-		for(int line = 1; line <= size; line++) {
-			for(int space = 0; space < line; space++) {
-				System.out.print(" ");
+		Scanner input = new Scanner(System.in);
+		boolean continuing = true;
+		while(continuing) {
+			System.out.print("How big is your hourglass?");
+			int size = input.nextInt();
+			String hourglasses = "";
+			hourglasses += ("|");
+			for(int i = 0; i < size; i++) {
+				hourglasses += ("\"");
 			}
-			System.out.print("\\");
-			for(int colon = 1; colon <= -2 * line + size; colon++) {
-				System.out.print(":");
+			hourglasses +=("| \n");
+			for(int i = 1; i <= (size/2) - 1; i++) {
+				for(int j = 0; j < i; j++) {
+					hourglasses += " ";
+				}
+				hourglasses += "\\";
+				for(int k = 0; k < -2 * i + size; k++) {
+					hourglasses += ":";
+				}
+				hourglasses += ("/ \n");
 			}
-			System.out.println("/");
+			for (int i = 0; i < size/2; i++) {
+				hourglasses += (" ");
+			}
+			if(size % 2 == 0) {
+				hourglasses += ("|| \n");
+			}else {
+				hourglasses += "||| \n";
+			}
+			for (int i = size/2 -1; i > 0; i--) {
+				for(int j = 0; j < i; j++) {
+					hourglasses += (" ");
+				}
+				hourglasses += ("/");
+				for(int k = 0; k < -2 * i + size; k++) {
+					hourglasses += (":");
+				}
+				hourglasses += ("\\ \n");
+			}
+			hourglasses += ("|");
+			for(int i = 0; i < size; i++) {
+				hourglasses += ("\"");
+			}
+			hourglasses +=("| \n");
+			System.out.println(hourglasses);
+			System.out.println("Type \"quit\" to stop: ");
+			String reply = input.next();
+			if(reply.equalsIgnoreCase("quit")) {
+				continuing = false;
+			}else {
+				continuing = true;
+			}
 		}
-		scanner.close();
+		input.close();
 	}
 }
+

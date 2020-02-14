@@ -17,12 +17,12 @@ public class DoMath {
 		System.out.println(Calculate.max(10, 11));
 		System.out.println(Calculate.max(1,2,3));
 		System.out.println(Calculate.min(1,2));
-		System.out.println(Calculate.roundTo2DecimalPlaces(35.456));
+		System.out.println(Calculate.round2(35.456));
 		System.out.println(Calculate.exponent(2, 4));
 		System.out.println(Calculate.factorial(5));
-		System.out.println(Calculate.isItAPrimeNumber(3));
-		System.out.println(Calculate.greatestCommonFactor(10, 15));
-		System.out.println(Calculate.squareRoot(6));
-		System.out.println(Calculate.theQuadraticFormula(1, 6, 9));
+		System.out.println(Calculate.isPrime(3));
+		System.out.println(Calculate.gcf(10, 15));
+		System.out.println(Calculate.sqrt(6));
+		System.out.println(Calculate.quadForm(1, 6, 9));
 	}
 }
